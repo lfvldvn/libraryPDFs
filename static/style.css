@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.pdf-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pdf-item p {
+    position: relative;
+    bottom: 0px;
+}
+
+.pdf-item {
+    width: 200px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.pdf-item:hover {
+    transform: scale(1.05);
+}
+
+.pdf_img {
+    height:270;
+}
+
+.pdf-item img {
+    width: 100%;
+    border-radius: 8px;
+    height: 270px;
+}
+
+.pdf_title {
+    height:50px;
+}
+
+.pdf-item p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Adicione esses estilos ao seu arquivo de folha de estilo */
+
+#alt_theme {
+    padding: 12px 20px;
+    margin: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+
+#alt_theme:hover {
+    background-color: #2980b9;
+}
+
+.dark-theme #alt_theme {
+    background-color: #2c3e50;
+}
+
+.dark-theme #alt_theme:hover {
+    background-color: #263544;
+}
+
+#alt_theme:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#alt_theme:active {
+    animation: pulseAnimation 0.2s ease;
+}
+
+
+.search-bar {
+    text-align: center;
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 20%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.open-button, .download-button, .delete-button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Botão de abrir */
+.open-button:hover {
+    background-color: #45a049;
+}
+
+.open-button {
+    background-color: #4CAF50;
+}
+
+/* Botão de download */
+.download-button:hover {
+    background-color: #007099; /* Um tom mais escuro para o efeito de hover */
+}
+
+.download-button {
+    background-color: #008CBA;
+}
+
+/* Botão de exclusão */
+.delete-button:hover {
+    background-color: #CC0000; /* Um tom mais escuro para o efeito de hover */
+}
+
+.delete-button {
+    background-color: #FF0000;
+}
+
+/* Adicione estilos para o tema escuro */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Adapte os estilos conforme necessário para o tema escuro */
+.dark-theme .container {
+    /* Adapte os estilos para o tema escuro */
+}

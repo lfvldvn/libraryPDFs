@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="search-bar">
+        <h1>Busque pela sua próxima leitura!</h1>
+        <input type="text" id="searchInput" placeholder="Buscar PDFs" onkeyup="searchPDFs()">
+    </div>
+    <button id="alt_theme" onclick="toggleTheme()">Alternar Tema</button>
+    <div class="container">
+        <h1>PDF Library</h1>
+        <div class="pdf-container">
+            {% for pdf_file in pdf_files %}
+                <div class="pdf-item">
+                    <img src="{{ url_for('static', filename='thumbnails/' + os.path.splitext(pdf_file)[0] + '.png') }}" alt="{{ pdf_file }}">
+                    <div class="pdf_title">
+                        <p>{{ pdf_file }}</p>
+                    </div>
+                    <br>
+
+                    <p>
+                        <a href="{{ url_for('view_pdf', filename=pdf_file) }}" target="_blank" class="open-button">Abrir PDF Online</a>
+                        <a href="{{ url_for('download_file', filename=pdf_file) }}" class="download-button" download>Download PDF</a>
+                        <a href="{{ url_for('delete_file', filename=pdf_file) }}" class="delete-button" onclick="return confirm('Tem certeza que deseja excluir este PDF?')">Excluir PDF</a>
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function searchPDFs() {
+            var input, filter, pdfContainer, pdfItems, a, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            pdfContainer = document.querySelector('.pdf-container');
+            pdfItems = pdfContainer.getElementsByClassName('pdf-item');
+
+            for (var i = 0; i < pdfItems.length; i++) {
+                a = pdfItems[i].getElementsByTagName('p')[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    pdfItems[i].style.display = '';
+                } else {
+                    pdfItems[i].style.display = 'none';
+                }
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+
+    </script>
+</body>
+</html>
